@@ -33,7 +33,9 @@ body {
 
 body {
   background-color: var(--color-bg);
-  background-image: url('/fondo.png');
+  background-image:
+    linear-gradient(rgba(250, 246, 238, 0.85), rgba(250, 246, 238, 0.85)),
+    url('/fondo.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
