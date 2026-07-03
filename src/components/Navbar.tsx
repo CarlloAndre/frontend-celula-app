@@ -88,14 +88,21 @@ const Navbar = () => {
         }
         .navbar-link {
           font-size: 14px;
-          font-weight: 500;
+          font-weight: 600;
           color: var(--color-ink-soft);
-          padding-bottom: 4px;
-          border-bottom: 2px solid transparent;
+          padding: 8px 16px;
+          border-radius: 20px;
+          border: 1px solid transparent;
+          transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+        .navbar-link:hover {
+          background: var(--color-bg-alt);
+          color: var(--color-ink);
         }
         .navbar-link-active {
-          color: var(--color-ink);
-          border-bottom-color: var(--color-gold);
+          color: var(--color-bg);
+          background: var(--color-ink);
+          border-color: var(--color-ink);
         }
         .navbar-user {
           font-size: 13px;
