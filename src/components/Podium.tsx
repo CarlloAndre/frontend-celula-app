@@ -61,10 +61,10 @@ const Podium = ({ top3 }: PodiumProps) => {
           max-width: 140px;
         }
         .podium-points {
-          font-family: var(--font-display);
-          font-size: 13px;
-          color: var(--color-ink-soft);
-          margin-bottom: 10px;
+        ont-family: var(--font-display);
+        font-size: 13px;
+        color: var(--color-ink);
+        margin-bottom: 10px;
         }
         .podium-bar {
           width: 100%;
