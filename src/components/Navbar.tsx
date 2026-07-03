@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-brand">
-        <span className="navbar-icon">🏆</span> Torneo Semanal
+        <span className="navbar-icon">🏆</span> Torneo Semanal Alive
       </Link>
 
       <div className="navbar-links">

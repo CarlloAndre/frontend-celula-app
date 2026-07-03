@@ -64,7 +64,7 @@ const WeeksPage = () => {
       <p className="eyebrow">Historial</p>
       <h1 className="page-title">Semanas del torneo</h1>
       <p className="page-subtitle">
-        Revisa qué hizo cada participante semana por semana.
+        Revisa qué hizo cada participante semana por semana detalladamente.
       </p>
 
       {loading && <p>Cargando...</p>}
