@@ -89,15 +89,16 @@ const Navbar = () => {
         .navbar-link {
           font-size: 14px;
           font-weight: 600;
-          color: var(--color-ink-soft);
+          color: var(--color-ink);
           padding: 8px 16px;
           border-radius: 20px;
-          border: 1px solid transparent;
+          background: rgba(255, 255, 255, 0.75);
+          border: 1px solid var(--color-border);
           transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
         }
         .navbar-link:hover {
-          background: var(--color-bg-alt);
-          color: var(--color-ink);
+          background: rgba(255, 255, 255, 0.95);
+          border-color: var(--color-ink);
         }
         .navbar-link-active {
           color: var(--color-bg);
