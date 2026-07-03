@@ -35,7 +35,7 @@ const HomePage = () => {
       <h1 className="page-title">Top del Torneo</h1>
       <p className="page-subtitle">
         Así va la competencia hasta el momento. Los puntos se actualizan cada
-        semana, asi que no faltes a la celula.
+        semana, así que no faltes a la célula.
       </p>
 
       {loading && <p>Cargando...</p>}
