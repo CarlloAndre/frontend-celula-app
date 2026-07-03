@@ -75,9 +75,9 @@ const RankingList = ({ resto, maxPuntos, offset }: RankingListProps) => {
           white-space: nowrap;
         }
         .ranking-points {
-          font-size: 13px;
-          color: var(--color-ink-soft);
-          flex-shrink: 0;
+        font-size: 13px;
+        color: var(--color-ink);
+        flex-shrink: 0;
         }
         .ranking-track {
           height: 6px;
