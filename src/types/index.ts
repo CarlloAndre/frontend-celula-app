@@ -1,5 +1,12 @@
 export type TipoCriterio = "checkbox" | "manual";
 
+export interface Torneo {
+  _id: string;
+  nombre: string;
+  slug: string;
+  activo: boolean;
+}
+
 export interface Criteria {
   _id: string;
   nombre: string;
@@ -44,5 +51,6 @@ export interface AdminAuth {
   admin: {
     id: string;
     username: string;
+    torneoId: string;
   };
 }

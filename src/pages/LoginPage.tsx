@@ -1,6 +1,7 @@
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useTorneo } from "../context/TorneoContext";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -8,6 +9,7 @@ const LoginPage = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
+  const { torneo } = useTorneo();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: FormEvent) => {
@@ -16,7 +18,7 @@ const LoginPage = () => {
     setLoading(true);
     try {
       await login(username, password);
-      navigate("/admin");
+      navigate(`/torneo/${torneo?.slug}/admin`);
     } catch (err) {
       setError("Usuario o contraseña incorrectos.");
     } finally {
@@ -30,7 +32,8 @@ const LoginPage = () => {
         <p className="eyebrow">Acceso restringido</p>
         <h1 className="page-title login-title">Entrar como admin</h1>
         <p className="page-subtitle">
-          Solo el organizador del torneo puede asignar puntos.
+          Solo el organizador de {torneo ? `"${torneo.nombre}"` : "este torneo"} puede
+          asignar puntos.
         </p>
 
         <form onSubmit={handleSubmit}>
