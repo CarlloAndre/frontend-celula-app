@@ -157,3 +157,9 @@ export const saveRecord = async (
   });
   return data;
 };
+
+export const deleteAllRecords = async (): Promise<void> => {
+  await api.delete("/weekly-records/all", {
+    params: { torneoId: getCurrentTorneoId() },
+  });
+};

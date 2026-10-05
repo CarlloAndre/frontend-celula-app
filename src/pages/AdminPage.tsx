@@ -83,6 +83,29 @@ const AdminPage = () => {
     }
   };
 
+  const [borrandoPuntos, setBorrandoPuntos] = useState(false);
+
+  const eliminarTodosLosPuntos = async () => {
+    if (
+      !confirm(
+        "¿Seguro que querés eliminar TODOS los puntos del torneo? Todos los participantes quedarán en 0 puntos. Esta acción no se puede deshacer."
+      )
+    )
+      return;
+    try {
+      setBorrandoPuntos(true);
+      await torneoService.deleteAllRecords();
+      setRecords([]);
+      await recargarParticipantes();
+      if (weekSeleccionada) await cargarRecords(weekSeleccionada);
+      alert("Todos los puntos fueron eliminados.");
+    } catch {
+      alert("No se pudieron eliminar los puntos.");
+    } finally {
+      setBorrandoPuntos(false);
+    }
+  };
+
   const handleWeekCreada = (nueva: Week) => {
     setWeeks((prev) => [nueva, ...prev]);
     setWeekSeleccionada(nueva._id);
@@ -220,6 +243,19 @@ const AdminPage = () => {
                   ))}
                 </tbody>
               </table>
+
+              <h3 className="section-subtitle">Zona de peligro</h3>
+              <p className="danger-text">
+                Elimina todos los puntos registrados en el torneo y deja a todos los
+                participantes en 0. No borra semanas, participantes ni criterios.
+              </p>
+              <button
+                className="btn btn-danger"
+                onClick={eliminarTodosLosPuntos}
+                disabled={borrandoPuntos}
+              >
+                {borrandoPuntos ? "Eliminando..." : "Eliminar todos los puntos"}
+              </button>
             </div>
           )}
 
@@ -301,6 +337,11 @@ const AdminPage = () => {
         }
         .week-selector {
           margin-bottom: 18px;
+        }
+        .danger-text {
+          font-size: 13px;
+          color: var(--color-ink-soft);
+          margin: 0 0 12px;
         }
         .empty-state {
           padding: 32px;
